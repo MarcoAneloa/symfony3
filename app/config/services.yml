@@ -7,3 +7,14 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.twig_helper_vistas:
+          class: AppBundle\Twig\HelperVistas
+          public: true
+          tags:
+            - { name: twig.extension }
+
+    app.twig_filter_vista:
+              class: AppBundle\Twig\FilterVistas
+              public: true
+              tags:
+                - { name: twig.extension }

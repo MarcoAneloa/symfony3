@@ -1,0 +1,49 @@
+{% extends "layout.html.twig" %}
+{% block container %}
+    {{ parent() }}
+    {{ texto }}
+
+    <hr/>
+    {{ frutas.pera }}
+
+    {% if frutas.pera=="cafe" %}
+    {{  frutas.manzana}}
+    {% endif %}
+
+    <hr/>
+    {% set variable='hola teig' %}
+    {{ variable }}
+
+    <hr/>
+    {% if (productos|length >3) %}
+    <ul>
+        {% for producto in productos %}
+        <li>{{ producto.producto }} --  {{ producto.precio }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <hr/>
+    {% set fecha = date("-2 days","Europe/Madrid") %}
+    {{ dump(fecha) }}
+    {{ fecha.date | date("d-m-Y") }}
+
+    <hr/>
+    {{ include ('AppBundle::partial.html.twig') }}
+    {{ min([8,45,99]) }}
+
+    <hr/>
+    {{ random(["Batman","Lo juegos","Gran"]) }}
+
+    <hr/>
+    {% for i in range(0,25,3) %}
+        {{ i }}<br/>
+    {% endfor %}
+
+    <hr/>
+    {{ generateTable(5,7,productos) | raw }}
+
+    <hr/>
+    {{ "hola ..........." | addText}}
+
+{% endblock %}
