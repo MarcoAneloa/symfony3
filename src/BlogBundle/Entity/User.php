@@ -221,6 +221,8 @@ class User implements UserInterface
         return $this->imagen;
     }
 
+
+
     /**
      * Returns the roles granted to the user.
      *
@@ -239,7 +241,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-      return array($this.$this->getRoles());  // TODO: Implement getRoles() method.
+      return array($this->getRoles());  // TODO: Implement getRoles() method.
     }
 
     /**
@@ -261,7 +263,7 @@ class User implements UserInterface
      */
     public function getUsername()
     {
-       return $this.$this->email; // TODO: Implement getUsername() method.
+       return $this->email; // TODO: Implement getUsername() method.
     }
 
     /**

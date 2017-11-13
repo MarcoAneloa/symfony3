@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/blog/old")
+     * @Route("/old")
      */
     //Metodo para traer lista
     public function oldAction()
@@ -71,7 +71,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/blog")
+     * @Route("/")
      */
     public function indexAction()
     {

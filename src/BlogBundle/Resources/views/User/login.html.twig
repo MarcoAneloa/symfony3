@@ -1,12 +1,13 @@
-{% extends BlogBundel::layout.html.twig %}
+{% extends "BlogBundle::layout.html.twig" %}
 
 {% block content %}
 
+    {{ dump(app.user) }}
     {% if app.user != null %}
         {{ dump(app.user) }}
     {% endif %}
 
-    <div class="col-lg-4">
+    <div class="col-lg-2">
         <h2>Iniciar Sesión</h2>
         <hr/>
         <form action="{{ path("login_check") }}" method="post">
@@ -16,9 +17,8 @@
             <label>Contraseña:</label>
             <input type="password" id="password" name="_password" class="form-control" />
             <br/>
-            <input type="button" value="Entrar" class="btn btn-succecss"/>
+            <input type="submit" value="Entrar" class="btn btn-success"/>
             <input type="hidden" name="_target_path" value="/login" />
-
         </form>
     </div>
 

@@ -10,12 +10,8 @@ security:
     providers:
         our_db_provider:
           entity:
-            class: Blogbundle:User
+            class: BlogBundle:User
             property: email
-        #Es para usuarios en memoria
-        #in_memory:
-        #   memory: ~
-
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
