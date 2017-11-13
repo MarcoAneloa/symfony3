@@ -9,11 +9,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/blog/old")
      */
+    //Metodo para traer lista
     public function oldAction()
     {
-        /*$em=$this->getDoctrine()->getEntityManager();
+        $em=$this->getDoctrine()->getEntityManager();
         $entry_repo=$em->getRepository('BlogBundle:Entry');
         $entries=$entry_repo->findAll();
 
@@ -30,7 +31,7 @@ class DefaultController extends Controller
 
             echo "<hr/>";
         }
-        die();*/
+        die();
 
         /*$em=$this->getDoctrine()->getEntityManager();
         $category_repo=$em->getRepository('BlogBundle:Category');

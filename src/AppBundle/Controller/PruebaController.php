@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class PruebaController extends Controller
 {
 
+    //Todos lo metodos funcionan son la base: symfony
     public function indexAction(Request $request,$name,$page)
     {
         //var_dump($request->query->get("hola"));
@@ -63,14 +64,14 @@ class PruebaController extends Controller
         $cursos_repo= $em->getRepository('AppBundle:Curso');
         $cursos=$cursos_repo->findAll();
 
-        $precio_2=$cursos_repo->findOneByPrecio(2.6);
-        echo $precio_2->getTitulo();
+        //$precio_2=$cursos_repo->findOneByPrecio(2.6);
+        //echo $precio_2->getTitulo();
 
-        /*foreach ($cursos as $curso){
+        foreach ($cursos as $curso){
             echo $curso->getTitulo()."</br>";
             echo $curso->getDescripcion()."</br>";
             echo $curso->getPrecio()."</br>";
-        }*/
+        }
 
         die();
     }

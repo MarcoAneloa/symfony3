@@ -1,11 +1,21 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
+    encoders:
+      BlogBundle\Entity\User:
+        algorithm: bcrypt
+        cost: 4
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        our_db_provider:
+          entity:
+            class: Blogbundle:User
+            property: email
+        #Es para usuarios en memoria
+        #in_memory:
+        #   memory: ~
+
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,6 +25,13 @@ security:
 
         main:
             anonymous: ~
+            provider: our_db_provider
+            form_login:
+              login_path: /login
+              check_path: /login_check
+            logout:
+              path: /logout
+              target: /login
             # activate different ways to authenticate
 
             # http_basic: ~
