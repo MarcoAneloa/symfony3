@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="EntryTag" table="entry_tag">
+    <indexes>
+      <index name="IDX_F035C9E5BA364942" columns="entry_id"/>
+      <index name="IDX_F035C9E5BAD26311" columns="tag_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+      <sequence-generator sequence-name="entry_tag_id_seq" allocation-size="1" initial-value="1"/>
+    </id>
+    <many-to-one field="entry" target-entity="Entries" fetch="LAZY">
+      <join-columns>
+        <join-column name="entry_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="tag" target-entity="Tags" fetch="LAZY">
+      <join-columns>
+        <join-column name="tag_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

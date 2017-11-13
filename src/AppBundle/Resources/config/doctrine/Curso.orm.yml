@@ -1,0 +1,20 @@
+AppBundle\Entity\Curso:
+    type: entity
+    table: cursos
+    repositoryClass: AppBundle\Repository\CursoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titulo:
+            type: string
+            length: 255
+        descripcion:
+            type: string
+            length: 255
+        precio:
+            type: float
+    lifecycleCallbacks: {  }
