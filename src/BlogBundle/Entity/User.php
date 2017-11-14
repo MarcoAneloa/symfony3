@@ -241,7 +241,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-      return array($this->getRoles());  // TODO: Implement getRoles() method.
+      return array($this->getRole());  // TODO: Implement getRoles() method.
     }
 
     /**
