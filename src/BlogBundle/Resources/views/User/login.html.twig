@@ -2,12 +2,23 @@
 
 {% block content %}
 
-    {#{ dump(app.user) }#}
-    {% if app.user != null %}
+    {#{% if app.user != null %}
         {{ dump(app.user) }}
+    {% endif %}#}
+
+    {% if is_granted('ROLE_USER') %}
+        <strong>
+            Esta logueado como usuario normal
+        </strong>
     {% endif %}
 
-    <div class="col-lg-2">
+    {% if is_granted('ROLE_ADMIN') %}
+        <strong>
+            Esta logueado como usuario admin
+        </strong>
+    {% endif %}
+
+    <div class="col-lg-4">
         <h2>Iniciar Sesión</h2>
         <hr/>
         <form action="{{ path("login_check") }}" method="post">
@@ -21,8 +32,5 @@
             <input type="hidden" name="_target_path" value="/login" />
         </form>
     </div>
-
-<div class="clear-fix"></div>
-
 
 {% endblock %}

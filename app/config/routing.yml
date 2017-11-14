@@ -3,6 +3,13 @@ blog:
     type:     annotation
     prefix:   /
 
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+
+
 #rutas_bundle:
 #  resource: "@AppBundle/Resources/config/routing.yml"
 #  prefix: /
@@ -11,7 +18,9 @@ blog:
 #    resource: "@AppBundle/Controller/"
 #    type:     annotation
 
-rutas_bundle:
-  resource: "@BlogBundle/Resources/config/routing.yml"
-  prefix: /
+#rutas_bundle:
+#  resource: "@BlogBundle/Resources/config/routing.yml"
+#  prefix: /
+
+
 
