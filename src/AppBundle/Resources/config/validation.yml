@@ -12,4 +12,4 @@ AppBundle\Entity\Curso:
         precio:
             -Type:
                 type: numeric
-                message: "El precio debe ser numerico";
+                message: "El precio debe ser numerico"
