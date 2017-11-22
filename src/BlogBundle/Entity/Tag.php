@@ -44,7 +44,7 @@ class Tag
 
     public function __construct()
     {
-        $this->entryTag = new ArrayCollection();
+        //$this->entryTag = new ArrayCollection();
     }
 
     /**

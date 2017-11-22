@@ -36,8 +36,11 @@
     <div class="col-lg-6">
         <h2>Registrate</h2>
         <hr/>
+        {% for message in app.session.flashbag.get('status') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
         {{ form_start(form,{'action':'','method':'POST'}) }}
         {{ form_end(form) }}
     </div>
-
+    <div class="clear-fix"></div>
 {% endblock %}
