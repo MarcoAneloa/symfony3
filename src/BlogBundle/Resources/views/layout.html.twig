@@ -3,7 +3,7 @@
     <head lang="es">
         <meta charset="utf-8"/>
         <title>
-            {% block title %} Blog con symfony3 {% endblock %}
+            {% block title %} Blog Symfony3 {% endblock %}
         </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -44,6 +44,10 @@
                                     {% if app.user == null %}
                                         <li><a href="{{ path("login") }}">Entrar</a></li>
                                     {% else %}
+                                        <li><a href="{{  path("blog_index_tag") }}">Etiquetas</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="{{  path("blog_index_category") }}">Categorias</a></li>
+                                        <li role="separator" class="divider"></li>
                                         <li><a href="{{  path("logout") }}">Salir</a></li>
                                     {% endif %}
                                     <li role="separator" class="divider"></li>
@@ -59,6 +63,7 @@
             {% block content %} Content Default{% endblock %}
         </section>
         <footer>
+            <hr>
             Symfony3 - Marco Aneloa ................................!!!
         </footer>
     </body>

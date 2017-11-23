@@ -24,6 +24,19 @@ class TagController extends Controller{
     }
 
     /**
+     * @Route("/tags/index", name="blog_index_tag")
+     */
+    public function indexAction(){
+        $em = $this->getDoctrine()->getEntityManager();
+        $tag_repo = $em->getRepository('BlogBundle:Tag');
+        $tags = $tag_repo->findAll();
+
+        return $this->render("BlogBundle:Tag:index.html.twig", array(
+            "tags" => $tags
+        ));
+    }
+
+    /**
      * @Route("/tags/add", name="blog_add_tag")
      */
     public function addTag(Request $request){
@@ -34,16 +47,44 @@ class TagController extends Controller{
 
         if ($form->isSubmitted()){
             if($form->isValid()){
-                $status="La etiqueta se a creado correctamente";
+                $em = $this->getDoctrine()->getEntityManager();
+
+                $tag = new Tag();
+                $tag->setName($form->get('name')->getData());
+                $tag->setDescription($form->get('description')->getData());
+
+                $em->persist($tag);
+                $flush = $em->flush();
+
+                if($flush==null){
+                    $status="La etiqueta se a creado correctamente";
+                }else{
+                    $status="Error al añadir la etiqueta";
+                }
             }else{
                 $status="la etiqueta no se ha creado, porque el formulario no es valido";
             }
             $this->session->getFlashBag()->add('status',$status);
+            return $this->redirectToRoute('blog_index_tag');
         }
 
         return $this->render("BlogBundle:Tag:add.html.twig", array(
             "form" => $form->createView()
         ));
+    }
+
+    /**
+     * @Route ("tag/delete/{id}",name="blog_delete_tag")
+     */
+    public function deleteAction($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        $tag_repo = $em->getRepository('BlogBundle:Tag');
+        $tag = $tag_repo->find($id);
+        if(count($tag->getEntryTag())==0){
+            $em->remove($tag);
+            $em->flush();
+        }
+        return $this->redirectToRoute('blog_index_tag');
     }
 
 

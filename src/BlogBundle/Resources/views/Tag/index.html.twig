@@ -1,0 +1,35 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="col-lg-5">
+        <h2>Lista de Etiquetas</h2>
+        <hr>
+        <a href="{{ path('blog_add_tag') }}" class="btn btn-success">Añadir Etiquetas</a>
+        <hr>
+        {% for message in app.session.flashbag().get('status') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Eliminar</th>
+            </tr>
+        {% for tag in tags %}
+            <tr>
+                <td>{{ tag.name }}</td>
+                <td>{{ tag.description }}</td>
+                <td>
+                {% if tag.entrytag|length ==0 %}
+                    <a href="{{ path('blog_delete_tag',{"id":tag.id}) }}" class="btn btn-danger">Eliminar</a>
+                {% else %}
+                    Etiqueta en uso
+                {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <div class="clear-fix"></div>
+
+{% endblock %}

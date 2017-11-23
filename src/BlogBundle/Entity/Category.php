@@ -3,7 +3,7 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Category
  *
@@ -44,6 +44,11 @@ class Category
     public function __construct()
     {
         $this->entry = new ArrayCollection();
+    }
+
+    public function  __toString()
+    {
+     return $this->name;   // TODO: Implement __toString() method.
     }
 
     /**
