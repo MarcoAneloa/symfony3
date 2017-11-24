@@ -1,0 +1,34 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block menu %}
+    {% include "BlogBundle:Category:menu.categories.html.twig" with {'categories':categories} %}
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>Lista de Entradas</h2>
+
+    {% for message in app.session.flashbag().get('status') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {% for entry in entries %}
+        <div class="col-lg-15">
+            <p class="pull-left" style="margin-right: 20px;"><img width="100" src="{{ asset("uploads/"~entry.image) }}"/></p>
+            <p><strong>{{ entry.title }}</strong></p>
+            <p>{{ entry.category.name }}</p>
+            <p>{% for et in entry.entryTag %}
+                    {{ et.tag.name }}
+                {% endfor %}
+            </p>
+            {% if (app.user.id is defined and entry.user.id == app.user.id )%}
+            <p>
+                <a href="{{ path('blog_delete_entry',{"id":entry.id}) }}" class="btn btn-danger">Eliminar</a>
+            </p>
+            {% endif %}
+            <hr>
+        </div>
+        <div class="clear-fix"></div>
+    {% endfor %}
+{% endblock %}

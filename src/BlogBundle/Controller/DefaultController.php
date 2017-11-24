@@ -71,7 +71,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/", name="home")
+     * @Route("/old2", name="home")
      */
     public function indexAction()
     {

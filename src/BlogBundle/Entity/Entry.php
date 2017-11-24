@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Entry
  *
  * @ORM\Table(name="entries", indexes={@ORM\Index(name="IDX_2DF8B3C5A76ED395", columns={"user_id"}), @ORM\Index(name="IDX_2DF8B3C512469DE2", columns={"category_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\EntryRepository")
  */
 class Entry
 {
