@@ -39,7 +39,9 @@ class EntryType extends AbstractType
             ))
             ->add('image',FileType::class,array(
                 "label" => "Imagen:",
-                "attr" => array("class" => "form-control")
+                "attr" => array("class" => "form-control"),
+                "data_class" => null,
+                "required" => false
             ))
             /*->add('user',TextType::class,array(
                 "label" => "Titulo",

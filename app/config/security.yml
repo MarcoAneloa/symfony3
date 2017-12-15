@@ -23,11 +23,11 @@ security:
             anonymous: ~
             provider: our_db_provider
             form_login:
-              login_path: /login
+              login_path: /home/login
               check_path: /login_check
             logout:
-              path: /logout
-              target: /login
+              path: /home/logout
+              target: /home/login
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -35,3 +35,7 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+    access_control:
+          - {path: ^/tags/index, roles: [ROLE_ADMIN, ROLE_USER]}
+          - {path: ^/category/index, roles: [ROLE_ADMIN]}

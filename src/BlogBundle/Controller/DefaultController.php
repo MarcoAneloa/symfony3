@@ -5,6 +5,7 @@ namespace BlogBundle\Controller;
 use BlogBundle\BlogBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -77,4 +78,6 @@ class DefaultController extends Controller
     {
         return $this->render('BlogBundle:Default:index.html.twig');
     }
+
+
 }

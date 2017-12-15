@@ -44,6 +44,8 @@
                                     {% if app.user == null %}
                                         <li><a href="{{ path("login") }}">Entrar</a></li>
                                     {% else %}
+                                        <li><a href="{{  path("blog_add_entry") }}">Añadir Entradas</a></li>
+                                        <li role="separator" class="divider"></li>
                                         <li><a href="{{  path("blog_index_tag") }}">Etiquetas</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li><a href="{{  path("blog_index_category") }}">Categorias</a></li>

@@ -25,10 +25,24 @@
             {% if (app.user.id is defined and entry.user.id == app.user.id )%}
             <p>
                 <a href="{{ path('blog_delete_entry',{"id":entry.id}) }}" class="btn btn-danger">Eliminar</a>
+                <a href="{{ path('blog_edit_entry',{"id":entry.id}) }}" class="btn btn-warning">Editar</a>
             </p>
             {% endif %}
             <hr>
         </div>
         <div class="clear-fix"></div>
     {% endfor %}
+
+    <ul class="pagination">
+        {% if(page==1) %}
+
+        {% else %}
+            {% set page=page-1 %}
+        {% endif %}
+        <li><a href="{{ path('blog_index_entry',{"page":page}) }}">&laquo</a></li>
+        {% for i in 1..pagesCount %}
+            <li><a href="{{ path('blog_index_entry',{"page":i}) }}">{{ i }}</a></li>
+        {% endfor %}
+        <li><a href="{{ path('blog_index_entry',{"page":page+1}) }}">&raquo</a></li>
+    </ul>
 {% endblock %}

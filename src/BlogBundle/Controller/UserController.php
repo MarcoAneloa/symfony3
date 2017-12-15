@@ -25,7 +25,7 @@ class UserController extends Controller{
     }
 
     /**
-     * @Route("/login", name="login")
+     * @Route("/home/login", name="login")
      */
     public function loginAction(Request $request){
         $authenticationUtils= $this->get("security.authentication_utils");
